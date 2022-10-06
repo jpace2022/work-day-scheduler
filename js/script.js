@@ -43,11 +43,11 @@ $( "li" ).each(function( index ) {
   }
 
     $(document).ready(function(){
-        $("#currentDay").text(moment().format("MMMM Do, YYYY, h:mm:ss a"));
+        $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
         $(".saveBtn").on("click", function(){
             var value = $(this).siblings(".discription").val()
             var divs = $(this).parent().attr("id")
-            localStorage.setItem(time, value)
+            localStorage.setItem("time", value)
         })
         function hourUpdate(){
             var currentHour = moment().hour()
