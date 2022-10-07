@@ -1,7 +1,7 @@
 // Needs to have static view
 // use existing classed to structure HTML
 // create 8 click handlers
-
+// jquiry setup for timeblock and main body of the page
 (function($) {
 var currentHour = moment().hours()
 $( "li" ).each(function( index ) {
@@ -24,7 +24,7 @@ $( "li" ).each(function( index ) {
         timeBlock.append(hourBlock).append(textBlock).append(saveBtn)
         holder.append(timeBlock)
     }
-    
+    //div coloring function that dictates color based on past present and future
   }
   function colorDivs(){
     $( ".time-block" ).each(function( index ) {
@@ -41,16 +41,17 @@ $( "li" ).each(function( index ) {
         }
       });
   }
+  //current date and time display
     setInterval(function(){
         $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
     },1000)
-    
+    //save to local storage function
     $(document).ready(function(){
         $(".saveBtn").on("click", function(){
             var value = $(this).siblings(".discription").val()
             var divs = $(this).parent().attr("id")
             localStorage.setItem(divs, value)
-        })
+        })//logic for div color changed based on time of day
         function hourlyUpdate(){
             var currentHour = moment().hour()
             $(".time-block").each (function(){
@@ -65,16 +66,15 @@ $( "li" ).each(function( index ) {
                     $(this).removeClass("future")
                     $(this).addClass("present")
                 }
-                else {
+                else if (currentHour < blockHour) {
                     $(this).removeClass("present")
                     $(this).removeClass("past")
                     $(this).addClass("future")
-                }
-                    
+                }        
                 
             })
         }
-
+        //div section that is stored in local storage 
         hourlyUpdate()
         $("#hour9 .discription").val(localStorage.getItem("hour9"))
         $("#hour10 .discription").val(localStorage.getItem("hour10"))
