@@ -22,9 +22,9 @@ Build a timed quiz that includes both multiple-choice questions and interactive 
 - [Questions](#questions)
 
 ## Screenshot Image
-![Work Day Scheduler](#)
-![Work Day Scheduler](#)
-![Work Day Scheduler](#)
+![Work Day Scheduler](https://github.com/jpace2022/work-day-scheduler/blob/main/screenshot/screenshot1.png)
+![Work Day Scheduler](https://github.com/jpace2022/work-day-scheduler/blob/main/screenshot/screenshot2.png)
+![Work Day Scheduler](https://github.com/jpace2022/work-day-scheduler/blob/main/screenshot/screenshot3.png)
 
 ## Finished Website
 [Work Day Scheduler(https://jpace2022.github.io/work-day-scheduler/)]
