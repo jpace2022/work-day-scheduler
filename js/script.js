@@ -41,17 +41,19 @@ $( "li" ).each(function( index ) {
         }
       });
   }
-
-    $(document).ready(function(){
+    setInterval(function(){
         $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+    },1000)
+    
+    $(document).ready(function(){
         $(".saveBtn").on("click", function(){
             var value = $(this).siblings(".discription").val()
             var divs = $(this).parent().attr("id")
-            localStorage.setItem("time", value)
+            localStorage.setItem(divs, value)
         })
-        function hourUpdate(){
+        function hourlyUpdate(){
             var currentHour = moment().hour()
-            $(".time-block").each(function(){
+            $(".time-block").each (function(){
                 var blockHour = parseInt($(this).attr("id").split("r")[1])
                 if(currentHour > blockHour) {
                     $(this).removeClass("future")
@@ -73,7 +75,7 @@ $( "li" ).each(function( index ) {
             })
         }
 
-        hourUpdate()
+        hourlyUpdate()
         $("#hour9 .discription").val(localStorage.getItem("hour9"))
         $("#hour10 .discription").val(localStorage.getItem("hour10"))
         $("#hour11 .discription").val(localStorage.getItem("hour11"))
